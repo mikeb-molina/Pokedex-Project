@@ -20,22 +20,20 @@ let pokemonList=[
     }
 ];
 
-//define speacial height for pokemon
-    specialHeight = 0.7;
 
 // Iterate each pokemon in array
 for (let i = 0; i < pokemonList.length; i++){
     //grab name and height of each pokemon in array
     console.log (pokemonName = pokemonList[i].name);
     console.log (pokemonHeight = pokemonList[i].height);
+    
+    //define threshhold height for pokemon
+    let threshholdHeight = '0.7';
 
-    //create variable to store label
-    let label= ' ';
-
-    //check for special height among pokemon
-    if (pokemonHeight > specialHeight) {
-        label = "- Wow that's a big pokemon!"
+    //check for threshhold height among pokemon
+    if (pokemonHeight === threshholdHeight){
+        console.log = ('- Wow that\'s big!');
     }
-
-    document.write(`${pokemonName} (height: ${pokemonHeight}${label})<br>`);
+    //write pokemon name and height on DOM
+    document.write(`${pokemonName} (height: ${pokemonHeight})<br>`);
 }
