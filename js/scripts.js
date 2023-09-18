@@ -37,5 +37,5 @@ for (let i = 0; i < pokemonList.length; i++){
         label = "- Wow that's a big pokemon!"
     }
 
-    document.write(`$pokemonName} (height: ${pokemonHeight}${label})<br>`);
+    document.write(`${pokemonName} (height: ${pokemonHeight}${label})<br>`);
 }
