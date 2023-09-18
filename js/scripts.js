@@ -1,5 +1,4 @@
-let pokemonList=[];
-pokemonList[
+let pokemonList=[
     {
         name: 'Bulbasaur',
         type: ['Grass', 'Poison'],
