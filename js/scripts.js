@@ -26,14 +26,16 @@ for (let i = 0; i < pokemonList.length; i++){
     //grab name and height of each pokemon in array
     console.log (pokemonName = pokemonList[i].name);
     console.log (pokemonHeight = pokemonList[i].height);
+
+       //write pokemon name and height on DOM
+    document.write (`${pokemonName} (height: ${pokemonHeight}) <br>`);
     
     //define threshhold height for pokemon
     let thresholdHeight = '0.7';
 
     //check for threshhold height among pokemon
     if (pokemonList[i].height >= thresholdHeight){
-        document.write (' - Wow that\'s big!');
+       document.write ( ' -Wow that\s big!');
     }
-    //write pokemon name and height on DOM
-    document.write(`${pokemonName} (height: ${pokemonHeight})<br>`);
+
 }
