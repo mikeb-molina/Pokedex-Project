@@ -8,9 +8,28 @@ let poekmonRepository = (function () {
         function getAll() {
             return pokemonList;
         };
+        function addListItem(pokemon){
+            let pokemonList = document.querySelector('.pokemon-list');
+            let listpokemon = document.createElement('li');
+            let button = document.createElement('button');
+            button.innerText = pokemon.name;
+            button.classList.add('button-class');
+            listpokemon.appendChild(button);
+            pokemonList.appendChild(listpokemon)
+            buttonListener(button, pokemon);
+        }
+        function showDetails(pokemon){
+            console.log(pokemon.name);
+        }
+        function buttonListener(button, pokemon){
+            button.addEventListener('click',function(pokemon){
+                showDetails(pokemon);
+            })
+        }
         return{
             add: add,
-            getAll: getAll
+            getAll: getAll,
+            addListItem: addListItem
         };
 })();
 
@@ -20,16 +39,8 @@ poekmonRepository.add({name: 'Sandshrew', type: 'Ground', height: '0.6 Meters'})
 poekmonRepository.add({name: 'Cubone', type: 'Ground', height: '0.4 Meters'});
 
 // Write Pokemon information on DOM
-poekmonRepository.getAll().forEach(function(pokemonList){;
-    document.write(`${pokemonList.name}: ${pokemonList.type}, ${pokemonList.height} <br>`);
-
-    // Define threshhold height for pokemon
-    let thresholdHeight = '0.7';
-
-    // Check for threshhold height among pokemon
-    if (pokemonList.height >= thresholdHeight){
-        document.write (`- Wow that\s big! <br>`);
-    };
+poekmonRepository.getAll().forEach(function(pokemon){;
+    poekmonRepository.addListItem(pokemon);
 });
     
     
