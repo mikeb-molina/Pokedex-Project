@@ -8,6 +8,7 @@ let poekmonRepository = (function () {
         function getAll() {
             return pokemonList;
         };
+        //create buttons for each pokemon in list
         function addListItem(pokemon){
             let pokemonList = document.querySelector('.pokemon-list');
             let listpokemon = document.createElement('li');
@@ -18,11 +19,13 @@ let poekmonRepository = (function () {
             pokemonList.appendChild(listpokemon)
             buttonListener(button, pokemon);
         }
+        //create function to show more detail for pokemon
         function showDetails(pokemon){
             console.log(pokemon.name);
         }
+        //create event listener for action when pokemon button is clicked
         function buttonListener(button, pokemon){
-            button.addEventListener('click',function(pokemon){
+            button.addEventListener('click',function(){
                 showDetails(pokemon);
             })
         }
