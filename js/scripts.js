@@ -1,6 +1,7 @@
 // created IIFE for pokemonList
 let poekmonRepository = (function () {
     let pokemonList=[];
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
    
         function add(pokemon) {
             pokemonList.push(pokemon);
@@ -21,29 +22,60 @@ let poekmonRepository = (function () {
         }
         //create function to show more detail for pokemon
         function showDetails(pokemon){
+            loadDetails(pokemon).then(function(){
             console.log(pokemon.name);
-        }
+        });
+    }
         //create event listener for action when pokemon button is clicked
         function buttonListener(button, pokemon){
             button.addEventListener('click',function(){
                 showDetails(pokemon);
             })
         }
+
+        function loadList(){
+            return fetch(apiUrl).then(function (response){
+                return response.json();
+            }).then(function(json){
+                json.results.forEach(function(item){
+                    let pokemon= {
+                        name: item.name,
+                        detailsUrl: item.url
+                    };
+                    add(pokemon);
+                });
+            }).catch(function(e){
+                console.error(e);
+            })
+        }
+        function loadDetails(item){
+            let url=item.detailsUrl;
+            return fetch(url).then(function (response){
+                return response.json();
+            }).then(function (details){
+                item.imageUrl = details.sprites.front_default;
+                item.height = details.height;
+                item.types = details.types;
+            }).catch(function(e){
+                console.error(e);
+            });
+        }
         return{
             add: add,
             getAll: getAll,
+            loadList: loadList,
+            loadDetails: loadDetails,
             addListItem: addListItem
         };
 })();
 
-// Define information for Pokemon List
-poekmonRepository.add({name: 'Bulbasaur', type:['Grass', ' Poison'], height: '0.7 Meters'});
-poekmonRepository.add({name: 'Sandshrew', type: 'Ground', height: '0.6 Meters'});
-poekmonRepository.add({name: 'Cubone', type: 'Ground', height: '0.4 Meters'});
+
 
 // Write Pokemon information on DOM
-poekmonRepository.getAll().forEach(function(pokemon){;
-    poekmonRepository.addListItem(pokemon);
-});
+poekmonRepository.loadList().then(function(){
+    poekmonRepository.getAll().forEach(function(pokemon){;
+        poekmonRepository.addListItem(pokemon);
+    });
+});    
     
     
