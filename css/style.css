@@ -23,9 +23,13 @@ body{
     border: 2px solid darkgreen;
 }
 
+
+
 html, 
 body {
+  text-align: center;
   font-family: Arial, sans-serif;
+
 }
 
 #modal-container {
@@ -79,4 +83,11 @@ body {
 
 .modal p {
   margin-bottom: 0;
+}
+
+.modal-img {
+  width: 275px;
+  height: 275px;
+  margin-left: 60px;
+  margin-top: -40px
 }
