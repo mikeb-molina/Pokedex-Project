@@ -62,14 +62,14 @@ let poekmonRepository = (function () {
         function showModal(item){
             let modalBody = $(".modal-body");
             let modalTitle = $(".modal-title");
-            let modalHeader = $("modal-header");
+            let modalHeader = $(".modal-header");
 
             // clear existing content of modal
             modalTitle.empty();
             modalBody.empty();
 
             // create element for name in modal content
-            let nameElement = $("<h1>" + pokemon.name +"</h1">);
+            let nameElement = $("<h1>" + pokemon.name +"</h1>");
             // create img in modal content
             let imageElement = $('<img class="modal-img" style="width:50%">');
             imageElement.attr("src", item.imageURL);
@@ -79,10 +79,9 @@ let poekmonRepository = (function () {
             modalTitle.append(nameElement);
             modalBody.append(imageElement);
             modalBody.append(heightElement);
-        }
-
-
-            });
+             }
+            
+        });
 
     //     
         //---!create event listener for action when pokemon button is clicked
@@ -99,16 +98,17 @@ let poekmonRepository = (function () {
             loadDetails: loadDetails,
             addListItem: addListItem
         };
+    }
 })();
 
 
 
 // Write Pokemon information on DOM
-poekmonRepository.loadList().then(function(){
-    poekmonRepository.getAll().forEach(function(pokemon){;
-        poekmonRepository.addListItem(pokemon);
-    });
-});    
+// poekmonRepository.loadList().then(function(){
+//     poekmonRepository.getAll().forEach(function(pokemon){;
+//         poekmonRepository.addListItem(pokemon);
+//     });
+// });    
     
     
 
