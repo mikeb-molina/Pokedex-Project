@@ -1,5 +1,5 @@
 //---!created IIFE for pokemonList
-let poekmonRepository = (function () {
+let pokemonRepository = (function () {
     let pokemonList=[];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
    
@@ -32,18 +32,18 @@ let poekmonRepository = (function () {
         function showModal(item){
             let modalBody = $(".modal-body");
             let modalTitle = $(".modal-title");
-            let modalHeader = $(".modal-header");
+            // let modalHeader = $(".modal-header");
 
             // clear existing content of modal
             modalTitle.empty();
             modalBody.empty();
 
             // create element for name in modal content
-            let nameElement = $("<h1>" + pokemon.name +"</h1>");
+            let nameElement = $("<h1>" + item.name + "</h1>");
             // create img in modal content
             let imageElement = $('<img class="modal-img" style="width:50%">');
             imageElement.attr("src", item.imageURL);
-            let heightElement = $("<p>" + "height : " + item.height + "</p>")
+            let heightElement = $("<p>" + "height : " + item.height + "</p>");
 
 
             modalTitle.append(nameElement);
@@ -66,10 +66,10 @@ let poekmonRepository = (function () {
                 });
             }).catch(function(e){
                 console.error(e);
-            })
+            });
         }
         function loadDetails(item){
-            let url=item.detailsUrl;
+            let url= item.detailsUrl;
             return fetch(url).then(function (response){
                 return response.json();
             }).then(function (details){
@@ -88,15 +88,9 @@ let poekmonRepository = (function () {
             showModal(pokemon.name);
             
         });
-
-    //     
-        //---!create event listener for action when pokemon button is clicked
-        // function buttonListener(button, pokemon){
-        //     button.addEventListener('click',function(){
-        //         showDetails(pokemon);
-        //     })
-        // }
-
+        
+    }
+    
         return{
             add: add,
             getAll: getAll,
@@ -104,19 +98,30 @@ let poekmonRepository = (function () {
             loadDetails: loadDetails,
             addListItem: addListItem
         };
-    }
-})();
+
+    })();
 
 
 
 // Write Pokemon information on DOM
-poekmonRepository.loadList().then(function(){
-    poekmonRepository.getAll().forEach(function(pokemon){;
-        poekmonRepository.addListItem(pokemon);
+pokemonRepository.loadList().then(function(){
+    pokemonRepository.getAll().forEach(function(pokemon){;
+        pokemonRepository.addListItem(pokemon);
     });
 });    
     
+
+
+
+
     
+//     
+        //---!create event listener for action when pokemon button is clicked
+        // function buttonListener(button, pokemon){
+        //     button.addEventListener('click',function(){
+        //         showDetails(pokemon);
+        //     })
+        // }
 
 
 
