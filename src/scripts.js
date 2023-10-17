@@ -43,8 +43,8 @@ let pokemonRepository = (function () {
             // create img in modal content
             let imageElement = $('<img class="modal-img">');
             imageElement.attr('src', item.imageUrl);
-            let heightElement = $("<p>" + "height : " + item.height + "</p>");
-            let weightElement = $('<p>' + 'weight : ' + item.weight + ' Decagrams' + '</p>');
+            let heightElement = $('<p>' + 'Height : ' + item.height + "</p>");
+            let weightElement = $('<p>' + 'Weight : ' + item.weight + ' Decagrams' + '</p>');
             let typesElement = $('<p>' + 'Types: ' + item.types.join(', ') + '</p>');
             let abilitiesElement = $('<p>' + 'Abilities: ' + item.abilities.join(', ') + '</p>');
         

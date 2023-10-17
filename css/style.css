@@ -10,7 +10,6 @@ html,
 body {
 text-align: center;
 font-family: Arial, sans-serif;
-
 }
 
 
@@ -22,11 +21,21 @@ margin-top: -40px
 } 
 
 .list-group-item {
-display: flex;
+/* display: flex; */
 justify-content: center;
 align-items: center;
 box-sizing: border-box;
-width: 25%;
+width: (20px);
+ text-transform: uppercase;
 }
 
+.pokemon-list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+ 
+}
 
