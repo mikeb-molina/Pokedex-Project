@@ -1,9 +1,25 @@
 :root {
-  --background-color: lightblue;
+  --background-color: rgb(255, 254, 254);
 }
 body{
   background-color: var(--background-color);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body::after{
+  content: '';
+  display: block;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: url('../img/pikachu.png') repeat 0 0;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.5;
+  width: 50%;
+  height: 50%;
+  z-index: -1;
+  
 }
 
 html, 
@@ -12,30 +28,48 @@ text-align: center;
 font-family: Arial, sans-serif;
 }
 
+.btn{
+  background-color: rgba(204, 204, 204, 0.616);
+  border: none;
+  padding: 10, 10, 10, 10;
+  border-radius: 25%;
+}
+
 
 .modal-img {
-width: 150px;
-height: 150px;
+width: 250px;
+height: 250px;
 margin-left: 40px;
 margin-top: -40px
 } 
 
 .list-group-item {
-/* display: flex; */
+display: flex;
+background-color: rgba(24, 104, 170, 0.616);
 justify-content: center;
 align-items: center;
 box-sizing: border-box;
 width: (20px);
  text-transform: uppercase;
+border-radius: 25%;
 }
 
 .pokemon-list{
+  padding-top: 20px;
   display: flex;
-  flex-direction: row;
+  display: -ms-flexbox;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 25px;
- 
+ text-transform: capitalize;
+ width: auto;
 }
 
+.navbar-brand{
+ background-color: rgb(247, 247, 247); 
+}
+.navbar-light{
+  background-color: rgb(174, 182, 185);
+}
